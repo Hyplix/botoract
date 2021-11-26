@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES2019",
+        "outDir": "build",
+        "pretty": true,
+        "esModuleInterop": false,
+        "noImplicitAny": false,
+        "declaration": true
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "lib"
+    ]
+}
