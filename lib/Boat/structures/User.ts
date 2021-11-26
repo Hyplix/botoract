@@ -68,6 +68,10 @@ export class User {
      */
     public async fetch (userId: string): Promise<UserResolvable> {
 
+        if (!userId) {
+            throw new Error("Botoract [Boats<Fetch User>] - userId is missing");
+        };  
+
         try {
             const res = await Axios.get(
                 this.boat.apiurl + endpoints.user + userId

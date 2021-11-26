@@ -21,13 +21,13 @@ export class Post {
     serverCount (serverCount: string | number, botId?: string) {
 
         if (!serverCount) {
-            throw new Error("Botoract [Boats<Post>] - Server Count is undefined");
+            throw new Error("Botoract [Boats<Post>] - Server Count is missing");
         };
 
         const userBotId = botId ? botId : this.boat.botId;
 
         if (!userBotId) {
-            throw new Error("Botoract [Boats<Post>] - BotId is undefined");
+            throw new Error("Botoract [Boats<Post>] - BotId is missing");
         };
 
         axios({

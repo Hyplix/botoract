@@ -152,6 +152,10 @@ export class Bot {
 
     public async fetch(botId: string): Promise<BotResolvable> {
 
+        if (!botId) {
+            throw new Error("Botoract [Boats<Fetch>] - BotId is missing");
+        };
+
         try {
 
             const res = await Axios({
@@ -172,11 +176,21 @@ export class Bot {
  * @param {string} userId - The id of the user
  * @returns {boolean}
  */
-    public async isVoted(botId: string, userId: string): Promise<Boolean> {
+    public async isVoted(userId: string, botId?: string): Promise<Boolean> {
+
+        if (!userId) {
+            throw new Error("Botoract [Boats<isVoted>] - userId is missing");
+        };
+
+        const botid = botId ?? this.boat.botId;
+
+        if (!botid) {
+            throw new Error("Botoract [Boats<isVoted>] - botId is missing");
+        };
 
         try {
 
-            const res = await Axios.get(this.boat.apiurl + endpoints.bot + botId + `/voted?id=${userId}`);
+            const res = await Axios.get(this.boat.apiurl + endpoints.bot + botid + `/voted?id=${userId}`);
             const data = res.data;
 
             if (data.error) {
