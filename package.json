@@ -1,12 +1,25 @@
 {
   "name": "botoract",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Botoract is a npm module to interact with different botlist public APIs.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepublish": "npm run build"
+  },
+  "keywords": [
+    "discord",
+    "api",
+    "botlists",
+    "discord bots",
+    "botoract"
+  ],
+  "repository": {
+    "url": "https://github.com/Hyplix/botoract"
+  },
+  "bugs": {
+    "url": "https://github.com/Hyplix/botoract/issues"
   },
   "author": "Hyplix <Colderry & J_DDev>",
   "license": "Apache-2.0",
