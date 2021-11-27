@@ -204,7 +204,9 @@ export class BotResolvable {
                     "Authorization": apiKey ?? this.discords.apiKey
                 }
             }).then(res => {
-                resolve(res.data);
+               const data = res.data as APIDiscordsBotVotes;
+               
+               return resolve(data);
             }).catch((err) => {
                 reject(new Error(`Botoract [Discords] - ${err.response.data.message} (fetchVotes)`));
             });
@@ -223,19 +225,19 @@ export class BotResolvable {
             throw new Error("Botoract [Discords] - No apiKey provided [postServerStats]");
         };
 
-            Axios({
-                method: "post",
-                url: this.discords.apiUrl + endpoints.bot + this.id,
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": apiKey ?? this.discords.apiKey
-                },
-                data: JSON.stringify({
-                    server_count: Number(serverCount)
-                })
-            }).catch(err => {
-                throw new Error(`Botoract [Discords] - ${err.response.data.message} (postServerStats)`);
-            });
+        Axios({
+            method: "post",
+            url: this.discords.apiUrl + endpoints.bot + this.id,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": apiKey ?? this.discords.apiKey
+            },
+            data: JSON.stringify({
+                server_count: Number(serverCount)
+            })
+        }).catch(err => {
+            throw new Error(`Botoract [Discords] - ${err.response.data.message} (postServerStats)`);
+        });
     };
 };
 
