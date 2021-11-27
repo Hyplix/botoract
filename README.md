@@ -1,8 +1,9 @@
 # Botoract
-Botoract is a npm module to interact with different botlist public APIs.
+Botoract is a npm module for interacting with different discord botlist public APIs.
 
 ## Botlist (Support)
 - [Discord Boats](https://discord.boats/)
+- [Discords](https://discords.com/)
 - More coming soon...
 
 ## Usage
@@ -33,6 +34,38 @@ boat.bots.isVoted("User ID", "Bot ID - Not required here if you passed on the co
     if (voted) {
         //...
     };
+});
+```
+### Discords
+```js
+const { Discords } = require("botoract");
+
+const discords = new Discords({
+    apiKey: "API Key"
+});
+
+// Fetch Bot
+discords.bots.fetch("Bot ID").then((bot) => {
+    
+    // Post Stats
+    bot.postServerStats(47, "API Key");
+
+    // Fetch Bot Votes
+    bot.fetchVotes("API Key").then((vote) => {
+        //...
+    });
+});
+
+
+// Fetch User
+discords.users.fetch("User ID").then((user) => {
+
+    // Fetch User Bots
+    user.fetchBots().then((bots) => {
+        bots.forEach((bot) => {
+            // ...
+        });
+    });
 });
 ```
 
