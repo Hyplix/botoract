@@ -15,7 +15,7 @@ export class Boat {
      * @param opt - The required options for the API
      * - token
      */
-    constructor (opt: APIBoat) {
+    constructor (opt: BoatOptions) {
 
         /**
          * API Token
@@ -55,7 +55,7 @@ export class Boat {
     };
 };
 
-export interface APIBoat {
+export interface BoatOptions {
     token: string;
     apiurl?: string;
     version?: string;
