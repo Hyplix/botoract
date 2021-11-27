@@ -1,1 +1,2 @@
-export * from "./Boat"
+export * from "./Boat";
+export * from "./Discords";
